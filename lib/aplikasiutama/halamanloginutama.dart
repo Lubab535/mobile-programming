@@ -19,6 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   final _passwordController = TextEditingController();
   bool _obscurePassword = true;
 
+  // Membersihkan controller agar tidak terjadi memory leak saat halaman ditutup.
   @override
   void dispose() {
     _emailController.dispose();
@@ -26,6 +27,7 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
+  // Menampilkan notifikasi singkat untuk feedback user.
   void _showMessage(String message) {
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
@@ -52,6 +54,7 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
+  // Mencetak style input yang sama untuk semua field agar layout konsisten.
   InputDecoration _inputDecoration({
     required String hint,
     required IconData icon,
@@ -88,6 +91,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  // Membuat tampilan utama halaman login dengan header, ilustrasi, dan card form.
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -122,6 +126,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  // Menampilkan branding aplikasi dan ilustrasi pembelajaran di bagian atas.
   Widget _buildHeader() {
     return Column(
       children: [
@@ -183,6 +188,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  // Ilustrasi dekoratif untuk memberi kesan edukasi pada halaman.
   Widget _buildLearningIllustration() {
     return Container(
       height: 104,
@@ -247,6 +253,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  // Menyusun form login beserta validasi email dan password.
   Widget _buildLoginCard() {
     return Container(
       padding: const EdgeInsets.fromLTRB(22, 24, 22, 22),

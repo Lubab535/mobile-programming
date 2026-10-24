@@ -21,6 +21,7 @@ class _RegisterPageState extends State<RegisterPage> {
   bool _obscurePassword = true;
   bool _obscureConfirmPassword = true;
 
+  // Membersihkan semua controller saat halaman ditutup agar memory aman.
   @override
   void dispose() {
     _nameController.dispose();
@@ -30,6 +31,7 @@ class _RegisterPageState extends State<RegisterPage> {
     super.dispose();
   }
 
+  // Mengirim user ke dashboard setelah form valid.
   void _register() {
     if (!_formKey.currentState!.validate()) return;
 
@@ -41,6 +43,7 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
+  // Style form input yang dipakai berulang di beberapa field.
   InputDecoration _inputDecoration({
     required String hint,
     required IconData icon,
@@ -77,6 +80,7 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
+  // Label kecil untuk tiap field agar form terlihat rapi dan jelas.
   Widget _buildFieldLabel(String text) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
@@ -91,6 +95,7 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
+  // Membuat field password dengan tombol toggle visibility yang bisa dipakai ulang.
   Widget _buildPasswordField({
     required String keyName,
     required String hint,
@@ -128,6 +133,7 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
+  // Menampilkan seluruh layout register: header, form, dan tombol daftar.
   @override
   Widget build(BuildContext context) {
     return Scaffold(

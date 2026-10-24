@@ -15,6 +15,7 @@ class DashboardPage extends StatelessWidget {
       ..showSnackBar(SnackBar(content: Text('$feature akan segera tersedia.')));
   }
 
+  // Menyusun seluruh tampilan dashboard utama untuk user setelah login/register.
   @override
   Widget build(BuildContext context) {
     final displayName = userName.trim().isEmpty ? 'Pelajar' : userName.trim();
@@ -69,6 +70,7 @@ class DashboardPage extends StatelessWidget {
     );
   }
 
+  // Menampilkan header atas dashboard, termasuk logo, notifikasi, dan avatar user.
   Widget _buildTopBar(BuildContext context, String displayName) {
     final initial = displayName.characters.first.toUpperCase();
 
@@ -121,6 +123,7 @@ class DashboardPage extends StatelessWidget {
     );
   }
 
+  // Banner selamat datang yang memberi kesan hangat dan semangat belajar.
   Widget _buildWelcomeBanner(String displayName) {
     return Container(
       padding: const EdgeInsets.all(21),
@@ -204,6 +207,7 @@ class DashboardPage extends StatelessWidget {
     );
   }
 
+  // Judul section yang bisa disertai tombol tambahan di sisi kanan.
   Widget _buildSectionHeading(String title, {Widget? trailing}) {
     return Row(
       children: [
@@ -222,6 +226,7 @@ class DashboardPage extends StatelessWidget {
     );
   }
 
+  // Menampilkan statistik singkat terkait aktivitas belajar user.
   Widget _buildStats() {
     return Row(
       children: [
@@ -255,6 +260,7 @@ class DashboardPage extends StatelessWidget {
     );
   }
 
+  // Kartu statistik kecil yang menampung angka penting untuk dashboard.
   Widget _buildStatCard({
     required IconData icon,
     required String value,
@@ -302,6 +308,7 @@ class DashboardPage extends StatelessWidget {
     );
   }
 
+  // Card kelas yang sedang dipelajari beserta progress dan tombol lanjutkan.
   Widget _buildCourseCard(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(16),
@@ -411,6 +418,7 @@ class DashboardPage extends StatelessWidget {
     );
   }
 
+  // Menyusun tombol akses cepat ke fitur utama seperti jadwal, tugas, dan nilai.
   Widget _buildQuickActions(BuildContext context) {
     final actions = [
       (
@@ -452,6 +460,7 @@ class DashboardPage extends StatelessWidget {
     );
   }
 
+  // Setiap item akses cepat berisi ikon, label, dan aksi tap yang sederhana.
   Widget _buildQuickAction(
     BuildContext context, {
     required IconData icon,
@@ -486,6 +495,7 @@ class DashboardPage extends StatelessWidget {
     );
   }
 
+  // Memberi tips singkat agar user tetap terarah dalam belajar setiap hari.
   Widget _buildStudyTip() {
     return Container(
       padding: const EdgeInsets.all(15),
