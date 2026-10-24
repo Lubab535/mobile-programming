@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:aplikasi_kuliahku/aplikasiutama/dashboard/halamandashboardutama.dart';
+import 'package:aplikasi_kuliahku/aplikasiutama/halamanregisterasiutama.dart';
 
 const _navy = Color(0xFF123B70);
 const _blue = Color(0xFF2878C8);
@@ -32,7 +34,21 @@ class _LoginPageState extends State<LoginPage> {
 
   void _login() {
     if (_formKey.currentState!.validate()) {
-      _showMessage('Form berhasil diisi. Fitur login siap dihubungkan.');
+      final emailName = _emailController.text.trim().split('@').first;
+      final userName = emailName
+          .replaceAll(RegExp(r'[._-]+'), ' ')
+          .split(' ')
+          .map(
+            (word) => word.isEmpty
+                ? word
+                : '${word[0].toUpperCase()}${word.substring(1)}',
+          )
+          .join(' ');
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute<void>(
+          builder: (_) => DashboardPage(userName: userName),
+        ),
+      );
     }
   }
 
@@ -394,8 +410,13 @@ class _LoginPageState extends State<LoginPage> {
                   style: TextStyle(color: _muted, fontSize: 13),
                 ),
                 TextButton(
-                  onPressed: () =>
-                      _showMessage('Fitur pendaftaran segera tersedia.'),
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (_) => const RegisterPage(),
+                      ),
+                    );
+                  },
                   style: TextButton.styleFrom(
                     foregroundColor: _blue,
                     padding: const EdgeInsets.only(left: 5),
